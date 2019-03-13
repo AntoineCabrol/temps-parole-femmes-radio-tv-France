@@ -1,0 +1,16 @@
+/** ================================================
+                # GLOBAL
+================================================ **/
+
+
+@import "./settings/normalize.css";
+@import "./settings/_colors";
+@import "./settings/_reset";
+@import "./settings/_breakpoints";
+@import "./settings/_typos";
+
+@import "./tools/_animations";
+
+//@import "./components/_";
+
+@import "./pages/_home";
