@@ -1,11 +1,12 @@
 import '../sass/global.scss';
+import JsonUse from './JsonUse';
 
 class App {
   constructor () {
     this.initApp();
   }
   initApp () {
-    console.log("App Initiée !")
+    this.JsonUse = new JsonUse();
   }
 }
 
