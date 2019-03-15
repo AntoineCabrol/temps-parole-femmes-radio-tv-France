@@ -1,4 +1,4 @@
-import $ from 'jquery'; // va chercher dans node modules tout seul
+import $ from 'jquery';
 import Rate from './rate';
 
 export default class Timeline {
@@ -24,7 +24,8 @@ export default class Timeline {
 
   initDate () {
     this.$els.timelineShow.text(`${this.$els.timeline.val()}`); // Valeur de base
-    return this.yearChosen = parseInt(this.$els.timeline.val(), 10);
+    this.yearChosen = parseInt(this.$els.timeline.val(), 10);
+    return this.yearChosen;
   }
 
   refreshDate () {
