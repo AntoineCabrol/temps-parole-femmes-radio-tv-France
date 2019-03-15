@@ -1,12 +1,14 @@
 import '../sass/global.scss';
-import JsonUse from './JsonUse';
+import Rate from './rate';
+import Timeline from './timeline';
 
 class App {
   constructor () {
     this.initApp();
   }
   initApp () {
-    this.JsonUse = new JsonUse();
+    this.Rate = new Rate();
+    this.Timeline = new Timeline();
   }
 }
 

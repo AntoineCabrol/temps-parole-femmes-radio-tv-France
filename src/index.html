@@ -42,26 +42,52 @@
 
 <body>
 
-  <header>
-    <p>Temps de parole des femmes à la :</p>
-    <input type="radio"
-           name="media"
-           class="js-choice-radio"> Radio</button>
-    <input type="radio"
-           name="media"
-           class="js-choice-tv" disabled> TV</button>
+  <header class="head">
+    <h1 class="head__title">
+      Temps de parole à la
+      <input type="radio"
+             name="media"
+             class="js-choice-radio"
+             id="choice-radio">
+      <label for="choice-radio"
+             class="head__choice">Radio</label>
+      <input type="radio"
+             name="media"
+             class="choice js-choice-tv"
+             id="choice-tv">
+      <label for="choice-tv"
+             class="head__choice">TV</label>
+   </h1>
   </header>
 
   <section class="radio js-radio">
-
+    <h2>📻</h2>
+    <ul>
+      <li>femmes : <span class="js-radio-women-rate"></span></li>
+      <li>hommes : <span class="js-radio-men-rate"></span></li>
+    </ul>
   </section>
 
   <section class="tv js-tv">
-
+    <h2>📺</h2>
+    <ul>
+      <li>femmes : <span class="js-tv-women-rate"></span></li>
+      <li>hommes : <span class="js-tv-men-rate"></span></li>
+    </ul>
   </section>
 
-  <footer>
-
+  <footer class="date">
+    1995
+    <input type="range"
+           name="volume"
+           min="1995"
+           max="2019"
+           step="1"
+           value=""
+           class="timeline js-timeline"
+           id="test">
+    2019
+    <strong class="timeline-show js-timeline-show"></strong>
   </footer>
 
 </body>
