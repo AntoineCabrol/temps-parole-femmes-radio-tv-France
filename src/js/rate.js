@@ -1,4 +1,4 @@
-import $ from 'jquery'; // va chercher dans node modules tout seul
+import $ from 'jquery';
 import Timeline from './timeline';
 
 export default class Rate {
@@ -33,7 +33,6 @@ export default class Rate {
     this.displayStats();
     this.$els.choice.click(() => {
       this.displayStats();
-      console.log("Clic radio/tv");
     });
   }
 
@@ -63,9 +62,7 @@ export default class Rate {
     // Calcul de la moyenne du tableau
     let total = 0;
     let n = this.yearsRates.length;
-    for (let i = 0; i < n; i++) {
-  		total += this.yearsRates[i];
-  	}
+    for (let i = 0; i < n; i++) { total += this.yearsRates[i]; }
   	this.yearRate = Math.round(total / n);
     this.womenRate.text(`${this.yearRate} % en ${date}`);
     this.menRate.text(`${100 - this.yearRate} % en ${date}`);
