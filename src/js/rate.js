@@ -9,6 +9,7 @@ export default class Rate {
 
   initEls () {
     this.$els = {
+      medias: $('.js-radio, .js-tv'),
       radio: $('.js-radio'),
       radioWomenRate: $('.js-radio-women-rate'),
       radioMenRate: $('.js-radio-men-rate'),
@@ -42,6 +43,7 @@ export default class Rate {
       date = this.timeline.initDate(); // default
     }
     this.yearsRates = []; // remise à 0
+    this.$els.medias.removeClass('chosen');
     if (this.$els.choiceRadio.is(':checked')) {
       // Filtrage
       this.radiosByDate = this.data.radio.filter(obj => obj.year === date);
@@ -50,6 +52,8 @@ export default class Rate {
       // Choix des emplacements des textes à remplir
       this.womenRate = this.$els.radioWomenRate;
       this.menRate = this.$els.radioMenRate;
+      // Afficher les stats
+      this.$els.radio.addClass('chosen');
     }
     else if (this.$els.choiceTv.is(':checked')) {
       this.radiosByName = this.data.radio.filter(obj => obj.channel_name === 'Chérie FM');
@@ -58,13 +62,15 @@ export default class Rate {
       // Choix des emplacements des textes à remplir
       this.womenRate = this.$els.tvWomenRate;
       this.menRate = this.$els.tvMenRate;
+      // Afficher les stats
+      this.$els.tv.addClass('chosen');
     }
     // Calcul de la moyenne du tableau
     let total = 0;
     let n = this.yearsRates.length;
     for (let i = 0; i < n; i++) { total += this.yearsRates[i]; }
   	this.yearRate = Math.round(total / n);
-    this.womenRate.text(`${this.yearRate} % en ${date}`);
-    this.menRate.text(`${100 - this.yearRate} % en ${date}`);
+    this.womenRate.text(`${this.yearRate} %`);
+    this.menRate.text(`${100 - this.yearRate} %`);
   }
 }

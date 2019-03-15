@@ -9,21 +9,20 @@ $font-text : "Rubik", Arial, Sans-Serif;
 $font-title : "Ubuntu", Arial, Sans-Serif;
 
 
+* { font-family: $font-text; }
+
 h1 {
 	display: inline-block;
 	margin: 0 auto;
 	padding: 5px 40px 5px 12px;
   font-family: $font-title;
 	font-size: 1.8rem;
-	color: $white;
-	background: $main;
 }
 
 h2 {
   margin: 0 0 20px;
   font-family: $font-title;
 	font-size: 1.4rem;
-  color: $main;
 }
 
 h3 {
@@ -34,4 +33,15 @@ h3 {
 
 strong { font-weight: 500; }
 
-* { font-family: $font-text; }
+input[type="radio"] {
+	@include hide;
+	& + label {
+		transform: opacity 0.4s;
+		opacity: 0.4;
+		cursor: pointer;
+	}
+	&:checked + label {
+		opacity: 1;
+		cursor: default;
+	}
+}

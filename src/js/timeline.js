@@ -25,6 +25,7 @@ export default class Timeline {
   initDate () {
     this.$els.timelineShow.text(`${this.$els.timeline.val()}`); // Valeur de base
     this.yearChosen = parseInt(this.$els.timeline.val(), 10);
+    this.$els.timeline.val(this.yearChosen);
     return this.yearChosen;
   }
 

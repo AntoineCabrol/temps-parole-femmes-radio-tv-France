@@ -44,11 +44,11 @@
 
   <header class="head">
     <h1 class="head__title">
-      Temps de parole à la
+      <span class="head__title-intro">Temps de parole à la</span>
       <input type="radio"
              name="media"
              class="js-choice-radio"
-             id="choice-radio">
+             id="choice-radio" checked>
       <label for="choice-radio"
              class="head__choice">Radio</label>
       <input type="radio"
@@ -67,34 +67,36 @@
     </div-->
   </header>
 
-  <section class="radio js-radio">
-    <h2>📻</h2>
-    <ul>
+  <section class="media media--radio js-radio">
+    <h2 class="media__title">📻</h2>
+    <ul class="media__rates">
       <li>femmes : <span class="js-radio-women-rate"></span></li>
       <li>hommes : <span class="js-radio-men-rate"></span></li>
     </ul>
   </section>
 
-  <section class="tv js-tv">
-    <h2>📺</h2>
-    <ul>
+  <section class="media media--tv js-tv">
+    <h2 class="media__title">📺</h2>
+    <ul class="media__rates">
       <li>femmes : <span class="js-tv-women-rate"></span></li>
       <li>hommes : <span class="js-tv-men-rate"></span></li>
     </ul>
   </section>
 
-  <footer class="date">
-    1995
+  <footer class="timeline">
+    <div class="timeline__marks">
+      <span class="timeline__marks-start">1995</span>
+      <strong class="timeline__marks-current js-timeline-show">2019</strong>
+      <span class="timeline__marks-end">2019</span>
+    </div>
     <input type="range"
            name="volume"
            min="1995"
            max="2019"
            step="1"
-           value=""
-           class="timeline js-timeline"
+           value="2019"
+           class="timeline__range js-timeline"
            id="test">
-    2019
-    <strong class="timeline-show js-timeline-show"></strong>
   </footer>
 
 </body>

@@ -52,3 +52,12 @@ ul, li {margin: none;}
   clear: both;
   display: table;
 }
+
+@mixin hide {
+  position: absolute;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
