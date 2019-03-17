@@ -1,4 +1,5 @@
 import $ from 'jquery';
+// import * from 'Chart.js';
 import Timeline from './timeline';
 
 export default class Rate {
@@ -10,6 +11,7 @@ export default class Rate {
   initEls () {
     this.$els = {
       medias: $('.js-radio, .js-tv'),
+      rates: $('.media__rates'),
       radio: $('.js-radio'),
       radioWomenRate: $('.js-radio-women-rate'),
       radioMenRate: $('.js-radio-men-rate'),
@@ -42,8 +44,10 @@ export default class Rate {
       this.timeline = new Timeline();
       date = this.timeline.initDate(); // default
     }
-    this.yearsRates = []; // remise à 0
+    // Remises à 0
+    this.yearsRates = [];
     this.$els.medias.removeClass('chosen');
+    //
     if (this.$els.choiceRadio.is(':checked')) {
       // Filtrage
       this.radiosByDate = this.data.radio.filter(obj => obj.year === date);
@@ -70,7 +74,8 @@ export default class Rate {
     let n = this.yearsRates.length;
     for (let i = 0; i < n; i++) { total += this.yearsRates[i]; }
   	this.yearRate = Math.round(total / n);
-    this.womenRate.text(`${this.yearRate} %`);
+    let womenWidth = (this.$els.rates.width() * this.yearRate) / 100;
+    this.womenRate.text(`${this.yearRate} %`).width(`${womenWidth}`);
     this.menRate.text(`${100 - this.yearRate} %`);
   }
 }
