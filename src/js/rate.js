@@ -11,13 +11,14 @@ export default class Rate {
   initEls () {
     this.$els = {
       medias: $('.js-radio, .js-tv'),
-      rates: $('.media__rates'),
       radio: $('.js-radio'),
+      radioRates: $('.js-radio-rates'),
       radioWomenRate: $('.js-radio-women-rate'),
       radioMenRate: $('.js-radio-men-rate'),
       tvWomenRate: $('.js-tv-women-rate'),
       tvMenRate: $('.js-tv-men-rate'),
       tv: $('.js-tv'),
+      tvRates: $('.js-tv-rates'),
       choice: $('.js-choice-radio, .js-choice-tv'),
       choiceRadio: $('.js-choice-radio'),
       choiceTv: $('.js-choice-tv'),
@@ -30,6 +31,7 @@ export default class Rate {
     this.yearsRates = []; // stocke tous les ratios de l'année dans un tableau
     this.yearRate = ''; // moyenne du tableau pour affichage
     this.timeline = null;
+    this.rates = 0; // attribué à la largeur de la radio ou la tv
     this.womenRate = '';
     this.menRate = '';
   }
@@ -58,6 +60,8 @@ export default class Rate {
       this.radiosByDate = this.data.radio.filter(obj => obj.year === date);
       // Création d'un tableau pour faire la moyenne
       this.radiosByDate.forEach((element) => this.yearsRates.push(element.women_expression_rate));
+      // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
+      this.rates = this.$els.radioRates;
       // Choix des emplacements des textes à remplir
       this.womenRate = this.$els.radioWomenRate;
       this.menRate = this.$els.radioMenRate;
@@ -72,6 +76,8 @@ export default class Rate {
       this.tvByDate = this.data.tv.filter(obj => obj.year === date);
       // Création d'un tableau pour faire la moyenne
       this.tvByDate.forEach((element) => this.yearsRates.push(element.women_expression_rate));
+      // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
+      this.rates = this.$els.tvRates;
       // Choix des emplacements des textes à remplir
       this.womenRate = this.$els.tvWomenRate;
       this.menRate = this.$els.tvMenRate;
@@ -83,7 +89,7 @@ export default class Rate {
     let n = this.yearsRates.length;
     for (let i = 0; i < n; i++) { total += this.yearsRates[i]; }
   	this.yearRate = Math.round(total / n);
-    let womenWidth = (this.$els.rates.width() * this.yearRate) / 100;
+    let womenWidth = (this.rates.width() * this.yearRate) / 100;
     this.womenRate.text(`${this.yearRate} %`).width(`${womenWidth}`);
     this.menRate.text(`${100 - this.yearRate} %`);
   }
