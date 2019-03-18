@@ -11,6 +11,7 @@ export default class Timeline {
     this.$els = {
       timeline: $('.js-timeline'),
       timelineShow: $('.js-timeline-show'),
+      timelineStart: $('.js-timeline-start'),
       timelineCurrent: $('.js-timeline-current'),
     };
     this.rate = null;

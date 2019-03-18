@@ -25,6 +25,8 @@ export default class Rate {
     this.data = require('../json/women_expression_rate_1995_2019_fr_radio_tv.json');
     this.radiosByDate = []; // stocke les objets filtrés par date
     this.radiosByName = []; // stocke les objets filtrés par nom de chaine/radio
+    this.tvByDate = []; // stocke les objets filtrés par date
+    this.tvByName = []; // stocke les objets filtrés par nom de chaine/radio
     this.yearsRates = []; // stocke tous les ratios de l'année dans un tableau
     this.yearRate = ''; // moyenne du tableau pour affichage
     this.timeline = null;
@@ -40,15 +42,18 @@ export default class Rate {
   }
 
   displayStats (date) {
+    let timeline = new Timeline();
     if (date === undefined) {
-      this.timeline = new Timeline();
-      date = this.timeline.initDate(); // default
+      date = timeline.initDate(); // default
     }
     // Remises à 0
     this.yearsRates = [];
     this.$els.medias.removeClass('chosen');
-    //
+    // RADIO / TV
     if (this.$els.choiceRadio.is(':checked')) {
+      // Ajustement 1ère borne timeline
+      timeline.$els.timelineStart.text('1995');
+      timeline.$els.timeline[0].setAttribute('min', '1995');
       // Filtrage
       this.radiosByDate = this.data.radio.filter(obj => obj.year === date);
       // Création d'un tableau pour faire la moyenne
@@ -60,9 +65,13 @@ export default class Rate {
       this.$els.radio.addClass('chosen');
     }
     else if (this.$els.choiceTv.is(':checked')) {
-      this.radiosByName = this.data.radio.filter(obj => obj.channel_name === 'Chérie FM');
+      // Ajustement 1ère borne timeline
+      timeline.$els.timelineStart.text('2010');
+      timeline.$els.timeline[0].setAttribute('min', '2010');
+      // Filtrage
+      this.tvByDate = this.data.tv.filter(obj => obj.year === date);
       // Création d'un tableau pour faire la moyenne
-      this.radiosByName.forEach((element) => this.yearsRates.push(element.women_expression_rate));
+      this.tvByDate.forEach((element) => this.yearsRates.push(element.women_expression_rate));
       // Choix des emplacements des textes à remplir
       this.womenRate = this.$els.tvWomenRate;
       this.menRate = this.$els.tvMenRate;
