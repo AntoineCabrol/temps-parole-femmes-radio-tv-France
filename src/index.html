@@ -57,31 +57,63 @@
              id="choice-tv">
       <label for="choice-tv"
              class="head__choice">TV</label>
+      <input type="radio"
+             name="media"
+             class="choice js-choice-search"
+             id="choice-search">
+      <label for="choice-search"
+             class="head__choice head__choice--search"></label>
    </h1>
 
-   <!--div class="search">
-      <input type="text"
-             class="search__input js-search-input"
-             placeholder="Rechercher une radio ou une chaine"/>
-      <button class="search__button js-search-button"></button>
-    </div-->
   </header>
 
-  <section class="media media--radio js-radio">
-    <h2 class="media__title">📻</h2>
-    <ul class="media__rates js-radio-rates">
-      <li class="media__women-rate js-radio-women-rate"></li>
-      <li class="media__men-rate js-radio-men-rate"></li>
-    </ul>
+
+  <!-- MEDIAS -->
+  <section class="medias-wrap">
+
+    <!-- Radio -->
+    <section class="media media--radio js-radio">
+      <h2 class="media__title">📻</h2>
+      <ul class="media__rates js-radio-rates">
+        <li class="media__women-rate js-radio-women-rate"></li>
+        <li class="media__men-rate js-radio-men-rate"></li>
+      </ul>
+    </section>
+
+    <!-- Tv -->
+    <section class="media media--tv js-tv">
+      <h2 class="media__title">📺</h2>
+      <ul class="media__rates js-tv-rates">
+        <li class="media__women-rate js-tv-women-rate"></li>
+        <li class="media__men-rate js-tv-men-rate"></li>
+      </ul>
+    </section>
+
+    <!-- Search -->
+    <section class="media media--search search js-search">
+
+      <div class="search__form">
+        <label for="choice-radio"
+               class="search__return js-choice-search">retour</label>
+        <h2 class="media__title">Recherchez...</h2>
+        <div class="search__zone">
+          <input type="text"
+                 class="search__input js-search-input"
+                 placeholder="une radio, une chaine"/>
+          <button class="search__button js-search-button"></button>
+        </div>
+      </div>
+
+      <div class="search__results">
+        Résultats !
+      </div>
+
+    </section>
+
   </section>
 
-  <section class="media media--tv js-tv">
-    <h2 class="media__title">📺</h2>
-    <ul class="media__rates js-tv-rates">
-      <li class="media__women-rate js-tv-women-rate"></li>
-      <li class="media__men-rate js-tv-men-rate"></li>
-    </ul>
-  </section>
+
+  <!-- TIMELINE -->
 
   <footer class="timeline">
     <div class="timeline__marks">

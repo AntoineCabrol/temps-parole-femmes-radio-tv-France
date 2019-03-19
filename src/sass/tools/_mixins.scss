@@ -1,0 +1,21 @@
+// main: ../global.scss
+
+/** ================================================
+               # MIXINS
+================================================ **/
+
+@mixin hide() {
+  position: absolute;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@mixin bg-image($src) {
+  background-image: url($src);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

@@ -10,7 +10,7 @@ export default class Rate {
 
   initEls () {
     this.$els = {
-      medias: $('.js-radio, .js-tv'),
+      medias: $('.js-radio, .js-tv, .js-search'),
       radio: $('.js-radio'),
       radioRates: $('.js-radio-rates'),
       radioWomenRate: $('.js-radio-women-rate'),
@@ -19,9 +19,11 @@ export default class Rate {
       tvMenRate: $('.js-tv-men-rate'),
       tv: $('.js-tv'),
       tvRates: $('.js-tv-rates'),
-      choice: $('.js-choice-radio, .js-choice-tv'),
+      choice: $('.js-choice-radio, .js-choice-tv, .js-choice-search'),
       choiceRadio: $('.js-choice-radio'),
       choiceTv: $('.js-choice-tv'),
+      search: $('.js-search'),
+      choiceSearch: $('.js-choice-search'),
     };
     this.data = require('../json/women_expression_rate_1995_2019_fr_radio_tv.json');
     this.radiosByDate = []; // stocke les objets filtrés par date
@@ -51,7 +53,7 @@ export default class Rate {
     // Remises à 0
     this.yearsRates = [];
     this.$els.medias.removeClass('chosen');
-    // RADIO / TV
+    // RADIO
     if (this.$els.choiceRadio.is(':checked')) {
       // Ajustement 1ère borne timeline
       timeline.$els.timelineStart.text('1995');
@@ -68,6 +70,7 @@ export default class Rate {
       // Afficher les stats
       this.$els.radio.addClass('chosen');
     }
+    // TV
     else if (this.$els.choiceTv.is(':checked')) {
       // Ajustement 1ère borne timeline
       timeline.$els.timelineStart.text('2010');
@@ -83,6 +86,11 @@ export default class Rate {
       this.menRate = this.$els.tvMenRate;
       // Afficher les stats
       this.$els.tv.addClass('chosen');
+    }
+    // SEARCH
+    else if (this.$els.choiceSearch.is(':checked')) {
+    // Afficher les stats
+    this.$els.search.addClass('chosen');
     }
     // Calcul de la moyenne du tableau
     let total = 0;

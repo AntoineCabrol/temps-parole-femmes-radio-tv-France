@@ -1,0 +1,94 @@
+// main: ../global.scss
+
+/** ================================================
+               # SEARCH
+================================================ **/
+
+
+.search {
+
+  &.chosen &__form {
+      z-index: 1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-flow: wrap;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($white, 0.92);
+      justify-content: center;
+      align-content: center;
+  }
+
+  &__return { margin: 0 auto 40px; }
+  &__zone {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 550px;
+    justify-content: center;
+    margin-bottom: 120px;
+  }
+  &__input {
+    width: 100%;
+    border: 1px solid $lightgrey;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 3rem;
+    padding: 0 45px;
+    background-color: transparent;
+    transition: border 0.2s;
+    &:focus {
+      border: 1px solid darken($lightgrey, 20);
+      & + .search__button { opacity: 0.5; }
+    }
+  }
+  &__button {
+    position: absolute;
+    right: 10px;
+    width: 25px;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    @include bg-image("../img/search.svg");
+    opacity: 0.3;
+    transition: opacity 0.2s;
+  }
+
+  &__form { }
+
+  &__results {
+  	display: flex;
+  	justify-content: center;
+  	width: 100vw;
+  }
+}
+
+
+
+
+/** ------------------------------------------------
+                  SMALL TABLET
+------------------------------------------------ **/
+
+@media (min-width: $smallTablet) { }
+
+
+
+
+
+/** ------------------------------------------------
+                      TABLET
+------------------------------------------------ **/
+
+@media (min-width: $tablet) { }
+
+
+
+
+/** ------------------------------------------------
+                      DESKTOP
+------------------------------------------------ **/
+
+@media (min-width: $desktop) { }

@@ -24,72 +24,16 @@ body {
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
-    label { margin: 0 5px; }
   }
-}
-
-.media {
-  display: flex;
-  margin: auto;
-  flex-flow: wrap;
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.4s 0.4s, transform 0.4s 0.4s;
-  &:not(.chosen) {
-    @include hide;
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: opacity 0.4s, transform 0.4s;
-  }
-  &__title {
-    width: 100%;
-    text-align: center;
-    font-size: 3rem;
-  }
-  &__rates {
-    display: flex;
-    list-style: none;
-    margin: auto;
-    padding: 0;
-    width: 280px;
-    height: 50px;
-    border-radius: 100px;
-    background: $main;
-  }
-
-  &__women-rate, &__men-rate {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    color: $white;
-    transition: width 0.2s;
-    &::before {
-    	position: absolute;
-    	color: $black;
-      font-size: 1.1rem;
-      width: 72px;
-    }
-  }
-  &__women-rate {
-    border-right: 1px solid $white;
-    &::before {
-      content: "femmes";
-      left: -62px;
-      text-align: right;
-      transform: translateX(-20px);
-    }
-  }
-  &__men-rate {
-    border-left: 1px solid $white;
-    &::before {
-      content: "hommes";
-      right: -62px;
-      transform: translateX(20px);
+  &__choice {
+    margin: 0 5px;
+    &--search {
+      width: 20px;
+      @include bg-image("../img/search.svg");
     }
   }
 }
+
 
 .sources {
   position: fixed;
