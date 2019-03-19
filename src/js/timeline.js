@@ -39,8 +39,8 @@ export default class Timeline {
     // Affichage effectif uniquement à l'arrêt du curseur
     this.$els.timeline.change(() => {
       this.yearChosen = parseInt(this.$els.timeline.val(), 10);
-      this.rate = new Rate();
-      this.rate.displayStats(this.yearChosen); // Envoi de la date à Rate
+      let rate = new Rate();
+      rate.displayStats(this.yearChosen, undefined); // Envoi de la date + nom à Rate
     });
   }
 }

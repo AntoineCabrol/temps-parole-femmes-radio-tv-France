@@ -1,6 +1,7 @@
 import $ from 'jquery';
 // import * from 'Chart.js';
 import Timeline from './timeline';
+import Search from './search';
 
 export default class Rate {
   constructor () {
@@ -40,65 +41,110 @@ export default class Rate {
 
   initEvents () {
     this.displayStats();
-    this.$els.choice.click(() => {
-      this.displayStats();
-    });
+    this.$els.choice.click(() => this.displayStats());
   }
 
-  displayStats (date) {
+  displayStats (date, name) {
     let timeline = new Timeline();
     if (date === undefined) {
       date = timeline.initDate(); // default
     }
+    name = 'France Bleu';
     // Remises à 0
     this.yearsRates = [];
     this.$els.medias.removeClass('chosen');
-    // RADIO
-    if (this.$els.choiceRadio.is(':checked')) {
-      // Ajustement 1ère borne timeline
-      timeline.$els.timelineStart.text('1995');
-      timeline.$els.timeline[0].setAttribute('min', '1995');
-      // Filtrage
-      this.radiosByDate = this.data.radio.filter(obj => obj.year === date);
-      // Création d'un tableau pour faire la moyenne
-      this.radiosByDate.forEach((element) => this.yearsRates.push(element.women_expression_rate));
-      // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
-      this.rates = this.$els.radioRates;
-      // Choix des emplacements des textes à remplir
-      this.womenRate = this.$els.radioWomenRate;
-      this.menRate = this.$els.radioMenRate;
-      // Afficher les stats
-      this.$els.radio.addClass('chosen');
-    }
-    // TV
-    else if (this.$els.choiceTv.is(':checked')) {
-      // Ajustement 1ère borne timeline
-      timeline.$els.timelineStart.text('2010');
-      timeline.$els.timeline[0].setAttribute('min', '2010');
-      // Filtrage
-      this.tvByDate = this.data.tv.filter(obj => obj.year === date);
-      // Création d'un tableau pour faire la moyenne
-      this.tvByDate.forEach((element) => this.yearsRates.push(element.women_expression_rate));
-      // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
-      this.rates = this.$els.tvRates;
-      // Choix des emplacements des textes à remplir
-      this.womenRate = this.$els.tvWomenRate;
-      this.menRate = this.$els.tvMenRate;
-      // Afficher les stats
-      this.$els.tv.addClass('chosen');
-    }
-    // SEARCH
-    else if (this.$els.choiceSearch.is(':checked')) {
-    // Afficher les stats
-    this.$els.search.addClass('chosen');
-    }
+    // MEDIAS
+    if (this.$els.choiceRadio.is(':checked')) this.filterRadios(date, name);
+    else if (this.$els.choiceTv.is(':checked')) this.filterTv(date, name);
+    else if (this.$els.choiceSearch.is(':checked')) this.filterSearch(date, name);
     // Calcul de la moyenne du tableau
+    this.average();
+  }
+
+  average () {
     let total = 0;
     let n = this.yearsRates.length;
-    for (let i = 0; i < n; i++) { total += this.yearsRates[i]; }
+    for (let i = 0; i < n; i++) total += this.yearsRates[i];
   	this.yearRate = Math.round(total / n);
     let womenWidth = (this.rates.width() * this.yearRate) / 100;
     this.womenRate.text(`${this.yearRate} %`).width(`${womenWidth}`);
     this.menRate.text(`${100 - this.yearRate} %`);
+  }
+
+  filterRadios (date, name) {
+    let timeline = new Timeline();
+    // Ajustement 1ère borne timeline
+    timeline.$els.timelineStart.text('1995');
+    timeline.$els.timeline[0].setAttribute('min', '1995');
+    // Filtrage
+    if (name === undefined) {
+      this.filterAll('radio', date);
+    } else {
+      this.filterSearched('radio', date, name);
+    }
+    // Création d'un tableau pour faire la moyenne
+    this.radiosByDate.forEach((element) => this.yearsRates.push(element.women_expression_rate));
+    // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
+    this.rates = this.$els.radioRates;
+    // Choix des emplacements des textes à remplir
+    this.womenRate = this.$els.radioWomenRate;
+    this.menRate = this.$els.radioMenRate;
+    // Afficher les stats
+    this.$els.radio.addClass('chosen');
+  }
+
+  filterTv (date, name) {
+    let timeline = new Timeline();
+    // Ajustement 1ère borne timeline
+    timeline.$els.timelineStart.text('2010');
+    timeline.$els.timeline[0].setAttribute('min', '2010');
+    // Filtrage
+    if (name === undefined) {
+      this.filterAll('tv', date);
+    } else {
+      this.filterSearched('tv', date, name);
+    }
+    // Création d'un tableau pour faire la moyenne
+    this.tvByDate.forEach((element) => this.yearsRates.push(element.women_expression_rate));
+    // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
+    this.rates = this.$els.tvRates;
+    // Choix des emplacements des textes à remplir
+    this.womenRate = this.$els.tvWomenRate;
+    this.menRate = this.$els.tvMenRate;
+    // Afficher les stats
+    this.$els.tv.addClass('chosen');
+  }
+
+  filterSearch (date, name) {
+    // Afficher les stats
+    this.$els.search.addClass('chosen');
+  }
+
+  filterAll (type, date) {
+    console.log(`filterAll(${type}, ${date}, ${name})`);
+    switch (type) {
+      case 'radio':
+        this.radiosByDate = this.data.radio.filter(obj => obj.year === date);
+        break;
+      case 'tv':
+        this.tvByDate = this.data.tv.filter(obj => obj.year === date);
+        break;
+      default:
+        console.log('No media selected..');
+    }
+  }
+
+  filterSearched (type, date, name) {
+    console.log(`filterSearched(${type}, ${date}, ${name})`);
+    switch (type) {
+      case 'radio':
+        this.radiosByDate = this.data.radio.filter(obj => obj.year === date && obj.channel_name === name);
+        break;
+      case 'tv':
+        this.tvByDate = this.data.tv.filter(obj => obj.year === date && obj.channel_name === name);
+        break;
+      default:
+        console.log('No media selected..');
+    }
   }
 }
