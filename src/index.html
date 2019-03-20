@@ -48,7 +48,7 @@
       <input type="radio"
              name="media"
              class="js-choice-radio"
-             id="choice-radio" checked>
+             id="choice-radio">
       <label for="choice-radio"
              class="head__choice">Radio</label>
       <input type="radio"
@@ -95,17 +95,24 @@
       <div class="search__form">
         <label for="choice-radio"
                class="search__return js-choice-search">retour</label>
-        <h2 class="media__title">Recherchez...</h2>
+        <h2 class="media__title">Tous les médias</h2>
         <div class="search__zone">
           <input type="text"
                  class="search__input js-search-input"
-                 placeholder="une radio, une chaine"/>
+                 placeholder="Rechercher un média..."/>
           <button class="search__button js-search-button"></button>
         </div>
+
+        <!-- Ranking, filtrated by search typed -->
+        <div class="search__ranking js-ranking"></div>
       </div>
 
-      <div class="search__results">
-        Résultats !
+      <div class="search__searched">
+        <h2 class="media__title"></h2>
+        <ul class="media__rates js-searched-rates">
+          <li class="media__women-rate js-searched-women-rate"></li>
+          <li class="media__men-rate js-searched-men-rate"></li>
+        </ul>
       </div>
 
     </section>

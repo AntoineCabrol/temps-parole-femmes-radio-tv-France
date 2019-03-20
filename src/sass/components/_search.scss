@@ -18,17 +18,19 @@
       height: 100%;
       background-color: rgba($white, 0.92);
       justify-content: center;
-      align-content: center;
+      align-content: flex-start;
+      overflow-y: auto;
   }
 
-  &__return { margin: 0 auto 40px; }
+  &__return { margin-top: 40px; }
   &__zone {
     position: relative;
     display: flex;
+    justify-content: center;
     width: 100%;
     max-width: 550px;
-    justify-content: center;
-    margin-bottom: 120px;
+    margin: 20px auto 50px;
+    padding: 0 10px;
   }
   &__input {
     width: 100%;
@@ -46,7 +48,7 @@
   }
   &__button {
     position: absolute;
-    right: 10px;
+    right: 20px;
     width: 25px;
     height: 3rem;
     border: none;
@@ -58,10 +60,41 @@
 
   &__form { }
 
-  &__results {
+  &__ranking {
   	display: flex;
-  	justify-content: center;
-  	width: 100vw;
+    flex-flow: wrap;
+  	width: 100%;
+    max-width: 860px;
+    padding-bottom: 60px;
+    &-media {
+      position: relative;
+      display: flex;
+    	height: 120px;
+    	width: 120px;
+    	margin: 0 auto;
+    	padding: 10px;
+      img::before {
+        content: "";
+        display: flex;
+        background-color: $placeholder;
+        border-radius: 100%;
+        width: 100px;
+        height: 100%;
+        font-size: 0;
+        cursor: pointer;
+      }
+      &::after {
+        position: absolute;
+        bottom: -5px;
+        left: calc(50% - 10px);
+        display: block;
+        width: 20px;
+        line-height: 2rem;
+        text-align: center;
+      }
+      &--radio::after { content: "📻"; }
+      &--tv::after { content: "📺"; }
+    }
   }
 }
 

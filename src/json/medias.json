@@ -1,0 +1,226 @@
+{
+  "radio" : [
+    {
+      "channel_name" : "Chérie FM",
+      "logo" : "CherieFM.png"
+    },
+    {
+      "channel_name" :  "Europe 1",
+      "logo" : "Europe1.png"
+    },
+    {
+      "channel_name" :  "France Bleu",
+      "logo" : "France_Bleu.png"
+    },
+    {
+      "channel_name" :  "France Culture",
+      "logo" : "France_Culture.png"
+    },
+    {
+      "channel_name" :  "France Info",
+      "logo" : "France_Info.png"
+    },
+    {
+      "channel_name" :  "France Inter",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "France Musique",
+      "logo" : "France_Musique.png"
+    },
+    {
+      "channel_name" :  "Fun Radio",
+      "logo" : "fun.jpg"
+    },
+    {
+      "channel_name" :  "Mouv’",
+      "logo" : "Mouv.png"
+    },
+    {
+      "channel_name" :  "NRJ",
+      "logo" : "NRJ.png"
+    },
+    {
+      "channel_name" :  "Nostalgie",
+      "logo" : "Nostalgie.png"
+    },
+    {
+      "channel_name" :  "RFM",
+      "logo" : "RFM.png"
+    },
+    {
+      "channel_name" :  "RMC",
+      "logo" : "RMC.png"
+    },
+    {
+      "channel_name" :  "RTL",
+      "logo" : "RTL.png"
+    },
+    {
+      "channel_name" :  "RTL 2",
+      "logo" : "RTL2.png"
+    },
+    {
+      "channel_name" :  "Radio Classique",
+      "logo" : "Radio_Classique.png"
+    },
+    {
+      "channel_name" :  "Radio France Internationale",
+      "logo" : "RFI.png"
+    },
+    {
+      "channel_name" :  "Rire et Chansons",
+      "logo" : "Rire_Chansons.png"
+    },
+    {
+      "channel_name" :  "Skyrock",
+      "logo" : "Skyrock.png"
+    },
+    {
+      "channel_name" :  "Sud Radio",
+      "logo" : "sud-radio.png"
+    },
+    {
+      "channel_name" :  "Virgin Radio",
+      "logo" : "Virgin.png"
+    }
+  ],
+  "tv" : [
+    {
+      "channel_name" :  "Arte",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Animaux",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "BFM TV",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Canal+",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Canal+ Sport",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Chasse et pêche",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Chérie 25",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Comédie+",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "D8/C8",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Euronews",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Eurosport France",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "France 2",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "France 24",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "France 3",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "France 5",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "France O",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Histoire",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "I-Télé/CNews",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "L'Equipe 21",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "LCI",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "LCP/Public Sénat",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "La chaîne Météo",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "M6",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Monte Carlo TMC",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "NRJ 12",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Paris Première",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Planète+",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "TF1",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "TV Breizh",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "TV5 Monde",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Toute l'Histoire",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Téva",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "Voyage",
+      "logo" : "France_Inter.png"
+    },
+    {
+      "channel_name" :  "W9",
+      "logo" : "France_Inter.png"
+    }
+  ]
+}

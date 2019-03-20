@@ -1,12 +1,11 @@
 import $ from 'jquery';
-// import * from 'Chart.js';
+import Navigation from './navigation';
 import Timeline from './timeline';
-import Search from './search';
+import Ranking from './ranking';
 
 export default class Rate {
   constructor () {
     this.initEls();
-    this.initEvents();
   }
 
   initEls () {
@@ -39,17 +38,11 @@ export default class Rate {
     this.menRate = '';
   }
 
-  initEvents () {
-    this.displayStats();
-    this.$els.choice.click(() => this.displayStats());
-  }
-
   displayStats (date, name) {
     let timeline = new Timeline();
     if (date === undefined) {
       date = timeline.initDate(); // default
     }
-    name = 'France Bleu';
     // Remises à 0
     this.yearsRates = [];
     this.$els.medias.removeClass('chosen');
@@ -121,7 +114,7 @@ export default class Rate {
   }
 
   filterAll (type, date) {
-    console.log(`filterAll(${type}, ${date}, ${name})`);
+    console.log(`filterAll(${type}, ${date})`);
     switch (type) {
       case 'radio':
         this.radiosByDate = this.data.radio.filter(obj => obj.year === date);
