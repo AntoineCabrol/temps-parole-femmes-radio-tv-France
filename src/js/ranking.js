@@ -33,7 +33,7 @@ export default class Ranking {
     // Radios
     this.medias.radio.forEach((element) => {
       this.$els.ranking.append(`
-        <div class="search__ranking-media search__ranking-media--radio" title="${element.channel_name}">
+        <div class="search__ranking-media search__ranking-media--radio js-media" title="${element.channel_name}">
           <img src="img/logos/radio/${element.logo}" alt="${element.channel_name}">
         </div>
         `);
@@ -41,7 +41,7 @@ export default class Ranking {
     // Tv
     this.medias.tv.forEach((element) => {
       this.$els.ranking.append(`
-        <div class="search__ranking-media search__ranking-media--tv" title="${element.channel_name}">
+        <div class="search__ranking-media search__ranking-media--tv js-media" title="${element.channel_name}">
           <img src="img/logos/tv/${element.logo}" alt="${element.channel_name}">
         </div>
         `);
@@ -53,7 +53,9 @@ export default class Ranking {
     this.medias.radio.forEach((element) => {
       if (element.channel_name.includes(typed)) {
         this.$els.ranking.append(`
-          <div class="search__ranking-media search__ranking-media--radio" title="${element.channel_name}">
+          <div class="search__ranking-media search__ranking-media--radio js-media"
+               title="${element.channel_name}"
+               data-type="radio">
             <img src="img/logos/radio/${element.logo}" alt="${element.channel_name}">
           </div>
           `);
@@ -63,7 +65,9 @@ export default class Ranking {
     this.medias.tv.forEach((element) => {
       if (element.channel_name.includes(typed)) {
         this.$els.ranking.append(`
-          <div class="search__ranking-media search__ranking-media--tv" title="${element.channel_name}">
+          <div class="search__ranking-media search__ranking-media--tv js-media"
+               title="${element.channel_name}"
+               data-type="tv">
             <img src="img/logos/tv/${element.logo}" alt="${element.channel_name}">
           </div>
           `);

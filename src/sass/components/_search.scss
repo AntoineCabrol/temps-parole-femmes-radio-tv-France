@@ -7,7 +7,9 @@
 
 .search {
 
-  &.chosen &__form {
+  &.chosen:not(.chosen--searching) &__form { @include hide; }
+
+  &.chosen--searching &__form {
       z-index: 1;
       position: fixed;
       top: 0;
@@ -58,8 +60,6 @@
     transition: opacity 0.2s;
   }
 
-  &__form { }
-
   &__ranking {
   	display: flex;
     flex-flow: wrap;
@@ -94,6 +94,12 @@
       }
       &--radio::after { content: "📻"; }
       &--tv::after { content: "📺"; }
+    }
+  }
+
+  &__searched {
+    .media__title .search__ranking-media {
+      margin-top: -50px;
     }
   }
 }

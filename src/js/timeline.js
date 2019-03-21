@@ -39,8 +39,22 @@ export default class Timeline {
     // Affichage effectif uniquement à l'arrêt du curseur
     this.$els.timeline.change(() => {
       this.yearChosen = parseInt(this.$els.timeline.val(), 10);
-      let rate = new Rate();
-      rate.displayStats(this.yearChosen, undefined); // Envoi de la date + nom à Rate
+      const rate = new Rate();
+      let type = $('input:checked').attr('data-type');
+      if (type === undefined) {
+        type = $('.search').attr('data-type'); // Cas spécial si recherche
+        const name = $('.search__searched .media__title').text();
+        rate.displayStats(this.yearChosen, name, type); // Envoi de la date sans nom à Rate
+      }
+      else {
+        rate.displayStats(this.yearChosen, undefined, type); // Envoi de la date sans nom à Rate
+      }
     });
+  }
+
+  setStart (date) {
+    // Ajustement 1ère borne timeline
+    this.$els.timelineStart.text(date);
+    this.$els.timeline[0].setAttribute('min', date);
   }
 }

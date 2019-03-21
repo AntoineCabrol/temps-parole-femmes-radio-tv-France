@@ -48,13 +48,15 @@
       <input type="radio"
              name="media"
              class="js-choice-radio"
-             id="choice-radio">
+             id="choice-radio"
+             data-type="radio">
       <label for="choice-radio"
              class="head__choice">Radio</label>
       <input type="radio"
              name="media"
              class="choice js-choice-tv"
-             id="choice-tv">
+             id="choice-tv"
+             data-type="tv">
       <label for="choice-tv"
              class="head__choice">TV</label>
       <input type="radio"
@@ -107,8 +109,8 @@
         <div class="search__ranking js-ranking"></div>
       </div>
 
-      <div class="search__searched">
-        <h2 class="media__title"></h2>
+      <div class="search__searched js-search-result">
+        <h2 class="media__title js-search-title"></h2>
         <ul class="media__rates js-searched-rates">
           <li class="media__women-rate js-searched-women-rate"></li>
           <li class="media__men-rate js-searched-men-rate"></li>
