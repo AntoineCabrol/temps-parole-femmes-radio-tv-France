@@ -69,21 +69,30 @@
     &-media {
       position: relative;
       display: flex;
-    	height: 120px;
-    	width: 120px;
+      flex-flow: column;
+      justify-content: center;
+      $size : 120px;
+      $space : 15px;
+    	height: $size;
+    	width: $size;
     	margin: 0 auto;
-    	padding: 10px;
+    	padding: $space;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        cursor: pointer;
+      }
+      // Style si image pas chargée
       img::before {
         content: "";
         display: flex;
         background-color: $placeholder;
         border-radius: 100%;
-        width: 100px;
-        height: 100%;
+        width: $size - $space*2;
+        height: $size - $space*2;
         font-size: 0;
-        cursor: pointer;
       }
-      &::after {
+      img::after {
         position: absolute;
         bottom: -5px;
         left: calc(50% - 10px);
@@ -92,8 +101,8 @@
         line-height: 2rem;
         text-align: center;
       }
-      &--radio::after { content: "📻"; }
-      &--tv::after { content: "📺"; }
+      &--radio img::after { content: "📻"; }
+      &--tv img::after { content: "📺"; }
     }
   }
 

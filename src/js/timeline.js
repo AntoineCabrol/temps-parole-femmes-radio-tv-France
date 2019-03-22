@@ -3,6 +3,8 @@ import Rate from './rate';
 
 export default class Timeline {
   constructor () {
+    this.rate = Rate;
+    console.log('new Timeline()', this.rate);
     this.initEls();
     this.initEvents();
   }
@@ -14,7 +16,6 @@ export default class Timeline {
       timelineStart: $('.js-timeline-start'),
       timelineCurrent: $('.js-timeline-current'),
     };
-    this.rate = null;
     this.yearChosen = 0;
   }
 
@@ -37,17 +38,17 @@ export default class Timeline {
     });
 
     // Affichage effectif uniquement à l'arrêt du curseur
-    this.$els.timeline.change(() => {
+    this.$els.timeline.on('click', () => {
+      console.log('test');
       this.yearChosen = parseInt(this.$els.timeline.val(), 10);
-      const rate = new Rate();
       let type = $('input:checked').attr('data-type');
       if (type === undefined) {
         type = $('.search').attr('data-type'); // Cas spécial si recherche
         const name = $('.search__searched .media__title').text();
-        rate.displayStats(this.yearChosen, name, type); // Envoi de la date sans nom à Rate
+        this.rate.displayStats(this.yearChosen, name, type); // Envoi de la date sans nom à Rate
       }
       else {
-        rate.displayStats(this.yearChosen, undefined, type); // Envoi de la date sans nom à Rate
+        this.rate.displayStats(this.yearChosen, undefined, type); // Envoi de la date sans nom à Rate
       }
     });
   }

@@ -4,7 +4,9 @@ import Search from './search';
 import Timeline from './timeline';
 
 export default class Navigation {
-  constructor () {
+  constructor (timeline, search) {
+    this.timeline = timeline;
+    this.search = search;
     this.initEls();
     this.initEvents();
   }
@@ -17,9 +19,6 @@ export default class Navigation {
       choiceTv: $('.js-choice-tv'),
       choiceSearch: $('.js-choice-search'),
     };
-    this.rate = new Rate();
-    this.search = new Search();
-    this.timeline = new Timeline();
     this.date = this.timeline.initDate(); // default
   }
 
@@ -30,7 +29,7 @@ export default class Navigation {
       const currentTarget = $(e.currentTarget);
       const date = this.date;
       const type = currentTarget.data('type');
-      this.rate.displayStats(date, undefined, type);
+      Rate.displayStats(date, undefined, type);
     });
     this.$els.choiceSearch.click(() => {
       this.$els.medias.removeClass('chosen chosen--searching');
@@ -42,6 +41,6 @@ export default class Navigation {
     this.$els.choiceRadio.click();
     const date = this.date;
     const type = 'radio';
-    this.rate.displayStats(date, undefined, type);
+    Rate.displayStats(date, undefined, type);
   }
 }

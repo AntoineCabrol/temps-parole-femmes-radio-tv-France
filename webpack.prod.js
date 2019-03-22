@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/js/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
@@ -22,7 +22,6 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: "../"
             }
           },
           'css-loader',
@@ -55,32 +54,7 @@ module.exports = {
               name: '[path][name].[ext]',
               context: path.join(__dirname, 'src')
             }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              name: '[path][name].[ext]',
-              mozjpeg: {
-                progressive: true,
-                quality: 65
-              },
-              // optipng.enabled: false will disable optipng
-              optipng: {
-                enabled: false,
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              // the webp option will enable WEBP
-              webp: {
-                quality: 75
-              }
-            }
-          },
+          }
         ],
       }
     ]

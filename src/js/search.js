@@ -3,7 +3,8 @@ import Rate from './rate';
 import Ranking from './ranking';
 
 export default class Search {
-  constructor () {
+  constructor (ranking) {
+    this.ranking = ranking;
     this.initEls();
     this.initEvents();
   }
@@ -18,34 +19,32 @@ export default class Search {
       searchResult: $('.js-search-result'),
     };
     this.medias = require('../json/medias.json');
-    this.rate = new Rate();
-    this.ranking = new Ranking();
   }
 
   initEvents () {
     this.$els.searchButton.click(() => this.init());
     this.$els.searchInput.keyup(() => this.init());
-    $(document).on('click', '.js-media', this.chooseMedia);
+    $(document).on('click', '.js-media', this.chooseMedia.bind(this));
   }
 
   init () {
+    console.log(this.media);
     this.$els.search.addClass('chosen chosen--searching');
     const searchedMedia = this.$els.searchInput.val();
     this.ranking.display(searchedMedia);
   }
 
-  chooseMedia () {
-    $('.search').removeClass('chosen--searching');
-    const rate = new Rate();
-    const logo = $(this).find('img').attr('src');
-    const name = $(this).attr('title');
-    const type = $(this).attr('data-type');
-    $('.js-search').addClass('chosen').attr('data-type', type);
-    $('.js-search-title').html(`
+  chooseMedia (e) {
+    const currentTarget = $(e.currentTarget);
+    const logo = currentTarget.find('img').attr('src');
+    const name = currentTarget.attr('title');
+    const type = currentTarget.attr('data-type');
+    this.$els.search.removeClass('chosen--searching').addClass('chosen').attr('data-type', type);
+    this.$els.searchTitle.html(`
       <div class="search__ranking-media search__ranking-media--radio js-media" title="${name}">
         <img src="${logo}" alt="${name}">
       </div>
       `);
-    rate.displayStats(undefined, name, type);
+    Rate.displayStats(undefined, name, type);
   }
 }

@@ -4,12 +4,13 @@ import Timeline from './timeline';
 import Ranking from './ranking';
 
 export default class Rate {
-  constructor () {
+  constructor (timeline) {
     this.initEls();
+    Rate.timeline = timeline;
   }
 
   initEls () {
-    this.$els = {
+    Rate.$els = {
       radio: $('.js-radio'),
       radioRates: $('.js-radio-rates'),
       radioWomenRate: $('.js-radio-women-rate'),
@@ -26,82 +27,82 @@ export default class Rate {
       searchWomenRate: $('.js-searched-women-rate'),
       searchMenRate: $('.js-searched-men-rate'),
     };
-    this.data = require('../json/women_expression_rate_1995_2019_fr_radio_tv.json');
-    this.radiosByDate = []; // stocke les objets filtrés par date
-    this.radiosByName = []; // stocke les objets filtrés par nom de chaine/radio
-    this.tvByDate = []; // stocke les objets filtrés par date
-    this.tvByName = []; // stocke les objets filtrés par nom de chaine/radio
-    this.yearsRates = []; // stocke tous les ratios de l'année dans un tableau
-    this.yearRate = ''; // moyenne du tableau pour affichage
-    this.timeline = null;
-    this.rates = 0; // attribué à la largeur de la radio ou la tv
-    this.womenRate = '';
-    this.menRate = '';
+    Rate.data = require('../json/women_expression_rate_1995_2019_fr_radio_tv.json');
+    Rate.radiosByDate = []; // stocke les objets filtrés par date
+    Rate.radiosByName = []; // stocke les objets filtrés par nom de chaine/radio
+    Rate.tvByDate = []; // stocke les objets filtrés par date
+    Rate.tvByName = []; // stocke les objets filtrés par nom de chaine/radio
+    Rate.yearsthiss = []; // stocke tous les ratios de l'année dans un tableau
+    Rate.yearthis = ''; // moyenne du tableau pour affichage
+    Rate.thiss = 0; // attribué à la largeur de la radio ou la tv
+    Rate.womenthis = '';
+    Rate.menthis = '';
   }
 
-  displayStats (date, name, type) {
+  static displayStats (date, name, type) {
     // console.log(`displayStats(${date}, ${name}, ${type})`);
     if (date === undefined) {
-      const timeline = new Timeline();
-      date = timeline.initDate();
+      console.log('New Timeline()');
+      date = Rate.timeline.initDate();
     }
     // Remises à 0
-    this.yearsRates = [];
+    Rate.yearsRates = [];
+    console.log('displayStats', this);
     // MEDIAS
-    this.filter(date, name, type);
+    Rate.filter(date, name, type);
     // Calcul de la moyenne du tableau
-    this.average();
+    Rate.average();
   }
 
-  filter (date, name, type) {
+  static filter (date, name, type) {
     // Filtrage
     if (name === undefined) {
-      this.filterAll(type, date);
+      Rate.filterAll(type, date);
     } else {
-      this.filterSearched(type, date, name);
+      Rate.filterSearched(type, date, name);
     }
-    let timeline = new Timeline();
     switch (type) {
       case 'radio':
+      console.log('this filter', this)
         // Actualiser la timeline
-        timeline.setStart(1995);
+        Rate.timeline.setStart(1995);
         // Création d'un tableau pour faire la moyenne
-        this.radiosByDate.forEach((element) => this.yearsRates.push(element.women_expression_rate));
+        Rate.radiosByDate.forEach((element) => Rate.yearsRates.push(element.women_expression_rate));
         // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
-        this.rates = this.$els.radioRates;
+        Rate.rates = Rate.$els.radioRates;
         if (name !== undefined) {
           // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
-          this.rates = this.$els.searchRates;
+          Rate.rates = Rate.$els.searchRates;
           // Choix des emplacements des textes à remplir
-          this.womenRate = this.$els.searchWomenRate;
-          this.menRate = this.$els.searchMenRate;
+          Rate.womenRate = Rate.$els.searchWomenRate;
+          Rate.menRate = Rate.$els.searchMenRate;
         }
         else {
           // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
-          this.rates = this.$els.radioRates;
+          Rate.rates = Rate.$els.radioRates;
           // Choix des emplacements des textes à remplir
-          this.womenRate = this.$els.radioWomenRate;
-          this.menRate = this.$els.radioMenRate;
+          Rate.womenRate = Rate.$els.radioWomenRate;
+          Rate.menRate = Rate.$els.radioMenRate;
         }
         break;
       case 'tv':
         // Actualiser la timeline
-        timeline.setStart(2010);
+        Rate.timeline.setStart(2010);
         // Création d'un tableau pour faire la moyenne
-        this.tvByDate.forEach((element) => this.yearsRates.push(element.women_expression_rate));
+        Rate.tvByDate.forEach((element) => Rate.yearsRates.push(element.women_expression_rate));
         if (name !== undefined) {
           // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
-          this.rates = this.$els.searchRates;
+          Rate.rates = Rate.$els.searchRates;
           // Choix des emplacements des textes à remplir
-          this.womenRate = this.$els.searchWomenRate;
-          this.menRate = this.$els.searchMenRate;
+          Rate.womenRate = Rate.$els.searchWomenRate;
+          Rate.menRate = Rate.$els.searchMenRate;
         }
         else {
           // Sélectionner le parent dans le DOM pour récupérer ensuite sa largeur
-          this.rates = this.$els.tvRates;
+          Rate.rates = Rate.$els.tvRates;
           // Choix des emplacements des textes à remplir
-          this.womenRate = this.$els.tvWomenRate;
-          this.menRate = this.$els.tvMenRate;
+          Rate.womenRate = Rate.$els.tvWomenRate;
+          Rate.menRate = Rate.$els.tvMenRate;
         }
         break;
       default:
@@ -109,44 +110,44 @@ export default class Rate {
     }
   }
 
-  filterAll (type, date) {
+  static filterAll (type, date) {
     // console.log(`filterAll(${type}, ${date})`);
     switch (type) {
       case 'radio':
-        this.radiosByDate = this.data.radio.filter(obj => obj.year === date);
-        this.$els.radio.addClass('chosen'); // Afficher les stats
+        Rate.radiosByDate = Rate.data.radio.filter(obj => obj.year === date);
+        Rate.$els.radio.addClass('chosen'); // Afficher les stats
         break;
       case 'tv':
-        this.tvByDate = this.data.tv.filter(obj => obj.year === date);
-        this.$els.tv.addClass('chosen'); // Afficher les stats
+        Rate.tvByDate = Rate.data.tv.filter(obj => obj.year === date);
+        Rate.$els.tv.addClass('chosen'); // Afficher les stats
         break;
       default:
         console.log('🍪');
     }
   }
 
-  filterSearched (type, date, name) {
+  static filterSearched (type, date, name) {
     // console.log(`filterSearched(${type}, ${date}, ${name})`);
     // Actualisation du filtre selon le type
     switch (type) {
       case 'radio':
-        this.radiosByDate = this.data.radio.filter(obj => obj.year === date && obj.channel_name === name);
+        Rate.radiosByDate = Rate.data.radio.filter(obj => obj.year === date && obj.channel_name === name);
         break;
       case 'tv':
-        this.tvByDate = this.data.tv.filter(obj => obj.year === date && obj.channel_name === name);
+        Rate.tvByDate = Rate.data.tv.filter(obj => obj.year === date && obj.channel_name === name);
         break;
       default:
         console.log('🍪');
     }
   }
 
-  average () {
+  static average () {
     let total = 0;
-    let n = this.yearsRates.length;
-    for (let i = 0; i < n; i++) total += this.yearsRates[i];
-  	this.yearRate = Math.round(total / n);
-    let womenWidth = (this.rates.width() * this.yearRate) / 100;
-    this.womenRate.text(`${this.yearRate} %`).width(`${womenWidth}`);
-    this.menRate.text(`${100 - this.yearRate} %`);
+    let n = Rate.yearsRates.length;
+    for (let i = 0; i < n; i++) total += Rate.yearsRates[i];
+  	Rate.yearRate = Math.round(total / n);
+    let womenWidth = (Rate.rates.width() * Rate.yearRate) / 100;
+    Rate.womenRate.text(`${Rate.yearRate} %`).width(`${womenWidth}`);
+    Rate.menRate.text(`${100 - Rate.yearRate} %`);
   }
 }

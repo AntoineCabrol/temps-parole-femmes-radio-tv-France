@@ -30,7 +30,7 @@
     },
     {
       "channel_name" :  "Fun Radio",
-      "logo" : "fun.jpg"
+      "logo" : "fun.png"
     },
     {
       "channel_name" :  "Mouv’",
@@ -88,15 +88,15 @@
   "tv" : [
     {
       "channel_name" :  "Arte",
-      "logo" : "France_Inter.png"
+      "logo" : "arte.png"
     },
     {
       "channel_name" :  "Animaux",
-      "logo" : "France_Inter.png"
+      "logo" : "animaux.png"
     },
     {
       "channel_name" :  "BFM TV",
-      "logo" : "France_Inter.png"
+      "logo" : "BFMTV.png"
     },
     {
       "channel_name" :  "Canal+",

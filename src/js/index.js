@@ -10,11 +10,11 @@ class App {
     this.initApp();
   }
   initApp () {
-    this.Rate = new Rate();
-    this.Ranking = new Navigation();
     this.Timeline = new Timeline();
-    this.Search = new Search();
+    this.Rate = new Rate(this.Timeline);
     this.Ranking = new Ranking();
+    this.Search = new Search(this.Ranking);
+    this.Navigation = new Navigation(this.Timeline, this.Search);
   }
 }
 
