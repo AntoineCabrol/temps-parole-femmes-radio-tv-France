@@ -51,26 +51,23 @@
     transition: width 0.2s;
     &::before {
     	position: absolute;
+      top: calc(100% + 6px);
     	color: $black;
-      font-size: 1.1rem;
-      width: 72px;
+      font-size: 0.9rem;
     }
   }
   &__women-rate {
     border-right: 1px solid $white;
     &::before {
       content: "femmes";
-      left: -62px;
-      text-align: right;
-      transform: translateX(-20px);
+      left: 10px;
     }
   }
   &__men-rate {
     border-left: 1px solid $white;
     &::before {
       content: "hommes";
-      right: -62px;
-      transform: translateX(20px);
+      right: 10px;
     }
   }
 }
@@ -82,7 +79,32 @@
                   SMALL TABLET
 ------------------------------------------------ **/
 
-@media (min-width: $smallTablet) { }
+@media (min-width: $smallTablet) {
+
+.media {
+  &__women-rate, &__men-rate {
+    &::before {
+      top: inherit;
+      font-size: 1.1rem;
+      width: 72px;
+    }
+  }
+  &__women-rate {
+    &::before {
+      left: -62px;
+      text-align: right;
+      transform: translateX(-20px);
+    }
+  }
+  &__men-rate {
+    &::before {
+      right: -62px;
+      transform: translateX(20px);
+    }
+  }
+}
+
+}
 
 
 
