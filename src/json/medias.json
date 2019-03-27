@@ -100,127 +100,127 @@
     },
     {
       "channel_name" :  "Canal+",
-      "logo" : "France_Inter.png"
+      "logo" : "Canal+.png"
     },
     {
       "channel_name" :  "Canal+ Sport",
-      "logo" : "France_Inter.png"
+      "logo" : "Canal+Sport.png"
     },
     {
       "channel_name" :  "Chasse et pêche",
-      "logo" : "France_Inter.png"
+      "logo" : "ChasseEtPeche.png"
     },
     {
       "channel_name" :  "Chérie 25",
-      "logo" : "France_Inter.png"
+      "logo" : "Cherie25.jpg"
     },
     {
       "channel_name" :  "Comédie+",
-      "logo" : "France_Inter.png"
+      "logo" : "Comedie+.png"
     },
     {
       "channel_name" :  "D8/C8",
-      "logo" : "France_Inter.png"
+      "logo" : "C8.png"
     },
     {
       "channel_name" :  "Euronews",
-      "logo" : "France_Inter.png"
+      "logo" : "euronews.jpg"
     },
     {
       "channel_name" :  "Eurosport France",
-      "logo" : "France_Inter.png"
+      "logo" : "eurosport.png"
     },
     {
       "channel_name" :  "France 2",
-      "logo" : "France_Inter.png"
+      "logo" : "France2.png"
     },
     {
       "channel_name" :  "France 24",
-      "logo" : "France_Inter.png"
+      "logo" : "France24.jpg"
     },
     {
       "channel_name" :  "France 3",
-      "logo" : "France_Inter.png"
+      "logo" : "France3.png"
     },
     {
       "channel_name" :  "France 5",
-      "logo" : "France_Inter.png"
+      "logo" : "France5.png"
     },
     {
       "channel_name" :  "France O",
-      "logo" : "France_Inter.png"
+      "logo" : "FranceO.png"
     },
     {
       "channel_name" :  "Histoire",
-      "logo" : "France_Inter.png"
+      "logo" : "Histoire.png"
     },
     {
       "channel_name" :  "I-Télé/CNews",
-      "logo" : "France_Inter.png"
+      "logo" : "CNews.jpg"
     },
     {
       "channel_name" :  "L'Equipe 21",
-      "logo" : "France_Inter.png"
+      "logo" : "Equipe21.jpg"
     },
     {
       "channel_name" :  "LCI",
-      "logo" : "France_Inter.png"
+      "logo" : "LCI.png"
     },
     {
       "channel_name" :  "LCP/Public Sénat",
-      "logo" : "France_Inter.png"
+      "logo" : "LCPpublicSenat.png"
     },
     {
       "channel_name" :  "La chaîne Météo",
-      "logo" : "France_Inter.png"
+      "logo" : "laChaineMeteo.png"
     },
     {
       "channel_name" :  "M6",
-      "logo" : "France_Inter.png"
+      "logo" : "M6.png"
     },
     {
       "channel_name" :  "Monte Carlo TMC",
-      "logo" : "France_Inter.png"
+      "logo" : "TMC.png"
     },
     {
       "channel_name" :  "NRJ 12",
-      "logo" : "France_Inter.png"
+      "logo" : "NRJ12.png"
     },
     {
       "channel_name" :  "Paris Première",
-      "logo" : "France_Inter.png"
+      "logo" : "Paris_premiere.png"
     },
     {
       "channel_name" :  "Planète+",
-      "logo" : "France_Inter.png"
+      "logo" : "Planete+.png"
     },
     {
       "channel_name" :  "TF1",
-      "logo" : "France_Inter.png"
+      "logo" : "TF1.png"
     },
     {
       "channel_name" :  "TV Breizh",
-      "logo" : "France_Inter.png"
+      "logo" : "TVBreizh.png"
     },
     {
       "channel_name" :  "TV5 Monde",
-      "logo" : "France_Inter.png"
+      "logo" : "TV5Monde.png"
     },
     {
       "channel_name" :  "Toute l'Histoire",
-      "logo" : "France_Inter.png"
+      "logo" : "Toute_lHistoire.png"
     },
     {
       "channel_name" :  "Téva",
-      "logo" : "France_Inter.png"
+      "logo" : "Teva.svg"
     },
     {
       "channel_name" :  "Voyage",
-      "logo" : "France_Inter.png"
+      "logo" : "Voyage.png"
     },
     {
       "channel_name" :  "W9",
-      "logo" : "France_Inter.png"
+      "logo" : "W9.png"
     }
   ]
 }
